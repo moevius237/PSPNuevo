@@ -7,12 +7,15 @@ public class Ej6 {
         String[] comandosCrear = {"mkdir", "FicheroNuevo"};
         String[] comandos = {"mdir", "FicheroNuevo"};
         ProcessBuilder pb = new ProcessBuilder(comandosCrear);
+        ProcessBuilder pbE = new ProcessBuilder(comandos);
+
         try {
             pb.start();
+            pbE.start();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        ProcessBuilder pbE = new ProcessBuilder(comandos);
+
         try {
             pb.start();
         } catch (IOException e) {
