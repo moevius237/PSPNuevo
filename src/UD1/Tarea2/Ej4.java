@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Ej4 {
     //THis code list in your current directory, all the files and directories but the code never ends,
-    //The error is hapenning because the pipe is broken , that is because you can't use two times the same BufferedWriter, when the writter ends the first time close himself and that cause error
+    //The error is hapenning because the pipe is broken , that is because you can't use two times the same BufferedWriter when you already use the BufferedReader, when the writter ends the first time close himself and that cause error
     public static void main(String[] args) {
 //en windows cmd, en linux bash
         ProcessBuilder pb = new ProcessBuilder(new String[]{"bash"});
