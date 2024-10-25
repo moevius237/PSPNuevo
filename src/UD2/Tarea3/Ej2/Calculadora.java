@@ -5,17 +5,19 @@ import UD2.ThreadColor;
 import java.util.Arrays;
 
 public class Calculadora {
+    public static int suma[] =new int [10];
+    private int total;
     public static Calculadora calculadora = new Calculadora();
-    static Calcula1 calcula1 = new Calcula1(calculadora);
-    static Calcula2 calcula2 = new Calcula2(calculadora);
-    static Calcula3 calcula3 = new Calcula3(calculadora);
+    static Calcula1 calcula1 = new Calcula1(calculadora,suma);
+    static Calcula2 calcula2 = new Calcula2(calculadora,suma);
+    static Calcula3 calcula3 = new Calcula3(calculadora,suma);
     public static void main(String[] args) {
         calcula1.start();
         calcula2.start();
         calcula3.start();
     }
     public void calcularSuma(int [] nume){
-        int total = 0;
+        total = 0; // SOLO modifique esta linea para que el primero que sume se le va a quedar este resultado y se interfiere
         for (int i = 0; i < nume.length; i++) {
             total = total+ nume[i];
             try {
