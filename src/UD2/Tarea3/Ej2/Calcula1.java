@@ -11,7 +11,7 @@ public class Calcula1 extends Thread {
     }
     @Override
     public void run() {
-        int [] suma = {10};
+        int [] suma = new int[10];
         Random random = new Random();
         for (int i = 0; i < suma.length; i++) {
             suma[i] = random.nextInt(1,10);
