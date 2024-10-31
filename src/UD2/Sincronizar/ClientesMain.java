@@ -12,12 +12,10 @@ public class ClientesMain {
         Thread t1 = new Thread(() -> bankAccount.deposit(1000));
         Thread t3 = new Thread(() -> bankAccount.deposit(1000));
         Thread t2 = new Thread(() -> bankAccount.withdraw(1000));
-        Thread t4 = new Thread(() -> bankAccount.nom("pablo"));
 
         t.start();
         t1.start();
         t2.start();
         t3.start();
-        t4.start();
     }
 }
