@@ -13,7 +13,7 @@ public class Cajero extends Thread{
     public void run() {
         Random r = new Random();
         for (int i = 0; i < r.nextInt(3, 6); i++) {
-           List<Integer> tres= tienda.agregarVenta(r.nextInt(0, 101));
+           tienda.agregarVenta(r.nextInt(0, 101));
         }
     }
 }
