@@ -17,12 +17,10 @@ guarda el estado compartido por todos los hilos que seran el peso actual y las p
 Este objeto se pasara a todos los hilos de la clase persona con el contructor
 puente tendra un metodo llamado autorizacion paso para pasar por el puente
 tambien tendra otro metodo llamado termina paso que quita las personas del puente junto su peso
-
-
  */
 public class Puente {
     public static void main(String[] args) {
 
-    }
 
+    }
 }
