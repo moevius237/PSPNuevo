@@ -17,7 +17,7 @@ public class Tienda {
         this.totalVentas += monto;
         this.transsaciones += 1;
         synchronized (montosRealizados){
-        if (montosRealizados.size() >= 4) {
+        if (montosRealizados.size() >= 3) {
             for (int i = montosRealizados.size(); i > 0; i--) {
                 montosRealizados.set(i, monto);
             }
