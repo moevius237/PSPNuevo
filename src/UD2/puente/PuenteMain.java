@@ -18,9 +18,14 @@ Este objeto se pasara a todos los hilos de la clase persona con el contructor
 puente tendra un metodo llamado autorizacion paso para pasar por el puente
 tambien tendra otro metodo llamado termina paso que quita las personas del puente junto su peso
  */
-public class Puente {
+public class PuenteMain {
     public static void main(String[] args) {
+        PuenteCompartido puenteCompartido = new PuenteCompartido();
+        PersonaEntra personaEntra = new PersonaEntra(puenteCompartido);
+        PersonaSale personaSale = new PersonaSale(puenteCompartido);
 
+        personaEntra.start();
+        personaSale.start();
 
     }
 }
