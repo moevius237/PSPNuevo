@@ -1,4 +1,7 @@
 package UD2.zapatos;
+
+import java.util.List;
+
 /*
 Consumer/Producer para un almacen de zapatos
 
@@ -23,4 +26,12 @@ public class Zapatos {
     public static void main(String[] args) {
 
     }
+}
+class Pedido{
+    private int id;
+    private final String [] pedido = {"botas","tacones","deportivos" , "botas" , "sandalias" , "zancos", "sneekers" , "crocs"};
+    private int cantidad;
+}
+class Almacen{
+    private List<Pedido> pedidos;
 }
