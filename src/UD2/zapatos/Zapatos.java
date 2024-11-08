@@ -17,7 +17,7 @@ Almacen tendra una lista de pedido como maximo mi almacen podra almacenar 10 ped
 EN mi clase Main:
 - un array de tipos de zapatos static final : botas , tacones, deportivos , botas , sandalias , zancos, sneekers , crocs
 - un hilo productor que generara 10 pedidos, id aleatorio, tipo zapatos aleatorio continua aleatorio: 20-25
--dos hilos consumidores cada hilo consumidor completar 5 pedidos
+- dos hilos consumidores cada hilo consumidor completar 5 pedidos
  */
 public class Zapatos {
     public static void main(String[] args) {
