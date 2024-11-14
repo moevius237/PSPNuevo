@@ -1,6 +1,8 @@
 package UD2.zapatos;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /*
 Consumer/Producer para un almacen de zapatos
@@ -23,15 +25,75 @@ EN mi clase Main:
 - dos hilos consumidores cada hilo consumidor completar 5 pedidos
  */
 public class Zapatos {
+    private static final String [] pedido = {"botas","tacones","deportivos" , "botas" , "sandalias" , "zancos", "sneekers" , "crocs"};
     public static void main(String[] args) {
-
+        Random r= new Random();
+        final Almacen almacen = new Almacen();
+        Runnable runan = () ->{
+            synchronized (almacen){
+            for (int i = 0; i < 10; i++) {
+                boolean b = almacen.rebirPedidos(new Pedido(1,pedido[r.nextInt(0,6)],r.nextInt(0,25)));
+                if (!b){
+                    try {
+                        almacen.wait();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                almacen.notifyAll();
+            }
+            }
+        };
+        Runnable rno =() ->{
+            synchronized (almacen) {
+                boolean m = almacen.procesarPedido();
+                if (!m){
+                    try {
+                        almacen.wait();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                almacen.notifyAll();
+            }
+        };
+        Thread t = new Thread(rno);
+        Thread t3 = new Thread(rno);
+        Thread t1 = new Thread(runan);
+        t3.start();
+        t.start();
+        t1.start();
     }
 }
 class Pedido{
     private int id;
-    private final String [] pedido = {"botas","tacones","deportivos" , "botas" , "sandalias" , "zancos", "sneekers" , "crocs"};
+    private final String [] pedido;
     private int cantidad;
+
+    public Pedido(int id, String pedido, int cantidad) {
+        this.id = id;
+        this.pedido = new String[]{pedido};
+        this.cantidad = cantidad;
+    }
 }
 class Almacen{
-    private List<Pedido> pedidos;
+    private List<Pedido> pedidos = new ArrayList<>();
+    private final int espacio = 10;
+
+    public synchronized boolean rebirPedidos(Pedido pedido){
+        while (pedidos.size() >= espacio) {
+            return false;
+        }
+        System.out.println(pedido);
+        pedidos.add(pedido);
+        return true;
+    }
+    public synchronized boolean procesarPedido(){
+        while (!(pedidos.isEmpty())){
+                return true;
+        }
+        System.out.println("borramos " + pedidos.getFirst());
+        pedidos.remove(pedidos.getFirst());
+        return false;
+    }
 }
