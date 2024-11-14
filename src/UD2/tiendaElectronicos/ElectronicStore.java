@@ -18,7 +18,6 @@ public class ElectronicStore {
         for (ElectronicProduct listo : lista){
             if (listo.getNombre().equals(producto)){
                 if (cantidadMax> cantidad){
-                    listo.setCantidad(listoi);
                 }else {
                     System.out.println("No disponemos de esa cantidad");
                 }
