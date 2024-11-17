@@ -1,4 +1,8 @@
 package UD2.cafe;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Vamos a simular una cafeteria con una barra donde los productores
 seran los clientes realizando los dedos de cafe y los consumidores
@@ -21,5 +25,32 @@ Tipos de cafes:cortadom americano, con leche,capuchino ,solo
  IMplemente
  */
 public class Cafe {
-    CoffeeCustomer coffeeCustomer = new CoffeeCustomer();
+    public static void main(String[] args) {
+        CupOfCoffee c1 = new CupOfCoffee(1,"capuchino");
+        CupOfCoffee c2 = new CupOfCoffee(1,"cortadom");
+        CupOfCoffee c3 = new CupOfCoffee(1,"americano");
+        CupOfCoffee c4 = new CupOfCoffee(1,"con leche");
+        CupOfCoffee c6 = new CupOfCoffee(1,"solo");
+        List<CupOfCoffee> cafe = new ArrayList<>();
+        cafe.add(c1);
+        cafe.add(c2);
+        cafe.add(c3);
+        cafe.add(c4);
+        cafe.add(c6);
+        CofeeBar cofeeBar = new CofeeBar(cafe);
+        CoffeeBarista coffeeBarista1 = new CoffeeBarista(cofeeBar);
+        CoffeeBarista coffeeBarista2 = new CoffeeBarista(cofeeBar);
+        CoffeeBarista coffeeBarista = new CoffeeBarista(cofeeBar);
+        CoffeeCustomer coffeeCustomer2= new CoffeeCustomer(cofeeBar);
+        CoffeeCustomer coffeeCustomer1 = new CoffeeCustomer(cofeeBar);
+        CoffeeCustomer coffeeCustomer= new CoffeeCustomer(cofeeBar);
+
+        coffeeBarista.start();
+        coffeeBarista1.start();
+        coffeeBarista2.start();
+        coffeeCustomer.start();
+        coffeeCustomer1.start();
+        coffeeCustomer2.start();
+    }
+
 }

@@ -5,6 +5,10 @@ import java.util.List;
 public class CofeeBar {
     private List<CupOfCoffee> cafes;
 
+    public List<CupOfCoffee> getCafes() {
+        return cafes;
+    }
+
     public synchronized void orderCofee(int id , String tipo){
         if (cafes.size() < 5){
             CupOfCoffee cafe = new CupOfCoffee(id,tipo);
