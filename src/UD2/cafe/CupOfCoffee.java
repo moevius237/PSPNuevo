@@ -4,7 +4,7 @@ public class CupOfCoffee {
     private int id;
     private String tipo;
 
-    private void DrinkCofee(int id , String tipo){
+    public void DrinkCofee(int id , String tipo){
         System.out.println("EL cliente esta bebiendo el cafe "+ id + " de " + tipo);
     }
 

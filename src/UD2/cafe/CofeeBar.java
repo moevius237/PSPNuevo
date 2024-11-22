@@ -1,5 +1,6 @@
 package UD2.cafe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CofeeBar {
@@ -10,26 +11,28 @@ public class CofeeBar {
     }
 
     public synchronized void orderCofee(int id , String tipo){
-        if (cafes.size() < 5){
-            CupOfCoffee cafe = new CupOfCoffee(id,tipo);
-            cafes.add(cafe);
-            System.out.println("Cafe añadido" + id + " de " + tipo);
-            notifyAll();
-        }else {
+        if (cafes.size() >= 5){
+
             System.out.println("LA barra esta llena");
             try {
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+        }else {
+                CupOfCoffee cafe = new CupOfCoffee(id,tipo);
+                cafes.add(cafe);
+                System.out.println("Cafe añadido" + id + " de " + tipo);
+                notifyAll();
+            }
             System.out.println("La barra se libero");
             CupOfCoffee cafe = new CupOfCoffee(id,tipo);
             cafes.add(cafe);
             System.out.println("Cafe añadido" + id + " de " + tipo);
         }
-    }
 
-    public void serverCofee(){
+    public synchronized CupOfCoffee serverCofee(){
+        CupOfCoffee cupOfCoffee = cafes.getFirst();
         if (cafes.size()>=0 ){
             cafes.remove(cafes.getFirst());
             System.out.println("cafe servido " + cafes.getFirst().toString());
@@ -42,6 +45,7 @@ public class CofeeBar {
                 throw new RuntimeException(e);
             }
         }
+        return cupOfCoffee;
     }
 
     public CofeeBar(List<CupOfCoffee> cafes) {

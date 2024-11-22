@@ -27,10 +27,10 @@ Tipos de cafes:cortadom americano, con leche,capuchino ,solo
 public class Cafe {
     public static void main(String[] args) {
         CupOfCoffee c1 = new CupOfCoffee(1,"capuchino");
-        CupOfCoffee c2 = new CupOfCoffee(1,"cortadom");
-        CupOfCoffee c3 = new CupOfCoffee(1,"americano");
-        CupOfCoffee c4 = new CupOfCoffee(1,"con leche");
-        CupOfCoffee c6 = new CupOfCoffee(1,"solo");
+        CupOfCoffee c2 = new CupOfCoffee(2,"cortadom");
+        CupOfCoffee c3 = new CupOfCoffee(3,"americano");
+        CupOfCoffee c4 = new CupOfCoffee(4,"con leche");
+        CupOfCoffee c6 = new CupOfCoffee(5,"solo");
         List<CupOfCoffee> cafe = new ArrayList<>();
         cafe.add(c1);
         cafe.add(c2);
