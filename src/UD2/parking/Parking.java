@@ -9,13 +9,15 @@ public class Parking {
     private List<Coche> cochesList = new ArrayList<>();
 
     public synchronized Coche cocheEntrar(Coche coche) {
-        while (cochesList.size() >= 20) {
+        if (
+                cochesList.size() >= 20) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
+        System.out.println("entra el coche "+ coche );
         cochesList.add(coche);
         try {
             Thread.sleep(5);
@@ -27,13 +29,14 @@ public class Parking {
     }
 
     public synchronized void cocheSalir(Coche co){
-        while (!(cochesList.size() >=1)){
+        if (!(cochesList.size() >=1)){
             try {
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
+        System.out.println("sale el coche " + co);
         cochesList.remove(co);
 
     }

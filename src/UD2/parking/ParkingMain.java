@@ -19,6 +19,8 @@ public class ParkingMain {
     public static void main(String[] args) {
         Parking parking = new Parking();
         CocheEntra cocheEntra = new CocheEntra(parking);
-        CocheSalir cocheSalir = new CocheSalir();
+        CocheSalir cocheSalir = new CocheSalir(parking,cocheEntra);
+        cocheEntra.start();
+        cocheSalir.start();
     }
 }

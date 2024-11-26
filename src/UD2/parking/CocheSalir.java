@@ -10,7 +10,7 @@ public class CocheSalir extends Thread{
 
     @Override
     public void run() {
-        if (cocheEntra.coche1 != null){
+        while (cocheEntra.coche1 != null){
         parking.cocheSalir(cocheEntra.coche1);
     }
     }

@@ -12,9 +12,11 @@ public class CocheEntra extends Thread{
 
     @Override
     public void run() {
+        while (true){
         Random r = new Random();
         int matricula = r.nextInt(1,1000);
         Coche coche = new Coche(matricula);
         coche1 = parking.cocheEntrar(coche);
+    }
     }
 }
