@@ -45,6 +45,11 @@ public class Restaurante {
         while (true) {
             Cliente cliente = new Cliente(restauranteCompartido,lista.get(r.nextInt(1,lista.size())));
             cliente.start();
+            try {
+                Thread.sleep(r.nextInt(200,3000));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

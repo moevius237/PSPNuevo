@@ -9,7 +9,7 @@ public class RestauranteCompartido {
     private Map<Integer,String> mesas = new HashMap<>();
 
     public synchronized boolean mesaDisponible(String nombre){
-        while (!(mesas.size() > 30)){
+        if (!(mesas.size() > 30)){
                 int mesa = mesas.size()+1;
                 mesas.put(mesa,nombre);
                 notifyAll();
@@ -26,7 +26,7 @@ public class RestauranteCompartido {
     }
 
     public synchronized void vaciarMEsa(){
-        while (!(mesas.size()<0)){
+        if (!(mesas.size()<0)){
             System.out.println("El cliente" + mesas.get(mesas.size())+ " abandona el restaurante");
             mesas.remove(mesas.size());
             notifyAll();

@@ -18,4 +18,11 @@ public class ExecutorTeoria {
      * -scjeduleAtFixedRate --> ejecuan sin parar los turnos
      * -scheduleWithFixedDelay --> ejecutasin parar las tarea
      */
+
+    /**
+     * Lo que sale en el examen
+     * Interferencia
+     * Sincronizar -> wait(), notify(), notifyAll()
+     * Executors
+     */
 }
