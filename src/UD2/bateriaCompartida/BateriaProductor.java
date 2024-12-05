@@ -19,4 +19,5 @@ public class BateriaProductor extends Thread{
             throw new RuntimeException(e);
         }}
     }
+
 }
