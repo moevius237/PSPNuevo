@@ -1,4 +1,4 @@
-package UD3.networking;
+package UD3.networking.tcp;
 
 /**
  * Capa de transporte --> UDP, TCP

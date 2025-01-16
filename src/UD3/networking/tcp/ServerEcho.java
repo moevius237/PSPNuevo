@@ -1,4 +1,4 @@
-package UD3.networking;
+package UD3.networking.tcp;
 
 import java.io.*;
 import java.net.ServerSocket;
