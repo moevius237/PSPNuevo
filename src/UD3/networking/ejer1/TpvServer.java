@@ -6,10 +6,10 @@ import java.net.Socket;
 
 public class TpvServer {
     public static void main(String[] args) {
-        AlmacenTP almacenTP = new AlmacenTP();
+        final AlmacenTP almacenTP = new AlmacenTP();
         try (ServerSocket serverSocket = new ServerSocket(5000)){
             while (true) {
-                Socket socket = serverSocket.accept();
+                Socket socket = serverSocket.accept();//
                 new Thread(new HilitoEjer(socket, almacenTP)).start();
             }
         } catch (IOException e) {

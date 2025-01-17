@@ -15,9 +15,10 @@ public class HilitoEjer implements Runnable {
 
     @Override
     public void run() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-            while (true) {
-                String compra = br.readLine();
+        try (socket;
+             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+            String compra;
+            while ((compra = br.readLine())!= null) {
                 String[] inserto = compra.split("#");
                 almacenTP.insertarProducto(inserto[0], Integer.valueOf(inserto[1]));
             }
