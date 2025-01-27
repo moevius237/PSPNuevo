@@ -1,4 +1,9 @@
 package UD3.networking.ejer2;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
 /*
 Diseña un sistema de gestion de reservas del cine . El sistema involucra la comunicacion
 entre la venta de tickets(cliente) y un servidor central
@@ -11,5 +16,16 @@ porque esta ocupado el asiento enviara codigo 303 solo cuando el cliente reciba 
 si no seguira intentando reservar otro asiento
  */
 public class CineTcpServer {
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(5000)) {
+
+            Socket socket = serverSocket.accept();
+            Sala sala = new Sala();
+            System.out.println("Cliente conectado");
+            new Thread(new HilitoCine(socket, sala)).start();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

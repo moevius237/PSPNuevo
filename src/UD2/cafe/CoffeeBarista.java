@@ -11,7 +11,7 @@ public class CoffeeBarista extends Thread{
     @Override
     public void run() {
         while (true) {
-            cofeeBar.serverCofee();
+             //cofeeBar.serverCofee();
         }
     }
 }

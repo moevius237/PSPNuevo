@@ -30,7 +30,7 @@ public class CofeeBar {
             cafes.add(cafe);
             System.out.println("Cafe añadido" + id + " de " + tipo);
         }
-
+/*
     public synchronized CupOfCoffee serverCofee(){
         CupOfCoffee cupOfCoffee = cafes.getFirst();
         if (cafes.size()>=0 ){
@@ -45,8 +45,10 @@ public class CofeeBar {
                 throw new RuntimeException(e);
             }
         }
-        return cupOfCoffee;
+        return null ;
     }
+
+ */
 
     public CofeeBar(List<CupOfCoffee> cafes) {
         this.cafes = cafes;

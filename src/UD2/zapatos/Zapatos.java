@@ -92,8 +92,8 @@ class Almacen{
         while (!(pedidos.isEmpty())){
                 return true;
         }
-        System.out.println("borramos " + pedidos.getFirst());
-        pedidos.remove(pedidos.getFirst());
+      //  System.out.println("borramos " + pedidos.getFirst());
+       // pedidos.remove(pedidos.getFirst());
         return false;
     }
 }

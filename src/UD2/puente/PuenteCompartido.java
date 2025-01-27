@@ -28,7 +28,7 @@ public class PuenteCompartido {
         }
 
     }
-
+/*
     public synchronized void terminaPaso(){
         if (!(this.personasActual <= 0)){
             int sale = pesos.getFirst();
@@ -46,5 +46,6 @@ public class PuenteCompartido {
                 throw new RuntimeException(e);
             }
         }
+
+ */
     }
-}

@@ -18,7 +18,7 @@ public class PersonaSale extends Thread{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            puenteCompartido.terminaPaso();
+        //    puenteCompartido.terminaPaso();
         }
     }
 }
